@@ -9,15 +9,10 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/'
   },
-  resolve: {
-    // extensiones
-    extensions: ['.js']
-  },
   module: {
-    // reglas
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -25,15 +20,11 @@ module.exports = {
       }
     ]
   },
-  // Para las rutas
   devServer: {
-    publicPath: '/',
-    watchOptions: {
-      ignored: /node_modules/
-    },
-    hot: true
+    hot: true,
+    open: true,
+    historyApiFallback: true
   },
-  // plugins
   plugins: [
     new HtmlWebPackPlugin({
       template: './public/index.html',
